@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="CriminalsApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Criminals App</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/criminalsController.js" charset="utf-8"></script>
+ </head>
+
+<body>
+  
+  <section ng-controller="CriminalsController as criminals"> 
+    <h1>Infamous Criminals</h1> 
+    
+    <ul id="criminals">
+      <li ng-repeat="criminal in criminals.all">
+        <span class="status">{{ criminal.name }}</span> 
+        <span class="location">{{ criminal.location }}</span>
+        <span class="status">{{ criminal.status }}</span>> 
+      </li> 
+    </ul>
+
+    <form id="newCriminal" class="add-criminal" ng-submit='criminals.addCriminal()'>
+      <div>
+        <label for="new-criminal-name">
+        Criminals Name:</label> 
+        <input type="text" id="new-criminal-name" ng-model='criminals.newCriminal.name'>
+      </div>
+
+      <div>
+        <label for="new-criminal-location">Criminals Location:</label> 
+        <input type="text" ng-model="criminals.newCriminals.location">
+      </div> 
+
+      <div>
+        <label for="new-criminal-status"> 
+        Criminals Status:</label> 
+        <input type="text" ng-model="criminals.newCriminals.status">
+      </div> 
+
+      <div>
+        <button class="crime-btn" type="submit" value="AddCriminal">Add Criminal</button>
+      </div> 
+    </form> 
+  </section> 
+</body>
+</html> 
